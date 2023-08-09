@@ -6,51 +6,39 @@
 /*   By: owatanab <owatanab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:34:52 by owatanab          #+#    #+#             */
-/*   Updated: 2023/06/22 14:53:26 by owatanab         ###   ########.fr       */
+/*   Updated: 2023/07/27 14:18:58 by owatanab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "libft.h"
-
-static int	malloc_size(char const *s, char const *t, int i);
-{
-	int c;
-
-	c = 0;
-	while (ft_strnstr(s, t, i))
-	{
-		s = ft_strnstr + 1;
-		c++;
-	}
-	return (i - c * ft_strlen(t));
-}
+#include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*p;
-	char	*q;
-	int		i;
+	char const	*f;
+	char		*q;
 
-	i = ft_strlen(s1);
-	p = calloc(1 + malloc_size(s1, set, i));
-	q = ft_strnstr(s1, set, i);
-	if (p)
+	if (s1 == NULL || set == NULL)
+		return (NULL);
+	if (*set)
 	{
-		while (q)
-		{
-			ft_strlcat(p, s1, q - s1 + 1);
-			s1 = q + ft_strlen(set);
-			q = ft_strnstr(s1, q, i);
-		}
+		while (ft_strchr(set, *s1) && *s1)
+			s1++;
+		if (*s1 == '\0')
+			return ((char *)ft_calloc(1, 1));
+		f = (char *)s1 + ft_strlen(s1) - 1;
+		while (ft_strchr(set, *f))
+			f--;
 	}
-	return (p);
+	else
+		f = s1 + ft_strlen(s1) - 1;
+	q = malloc(f - s1 + 2);
+	if (q)
+		ft_strlcpy(q, s1, f - s1 + 2);
+	return (q);
 }
 
-#include <stdio.h>
-#include <stdlib.h>
-
-int	main(void)
-{
-	char s[] = "aijsousfbvibdhuh";
-	printf("%s", ft_strtrim(s, "so"));
-}
+// int	main(void)
+// {
+// 	// char s[] = "aaissssoooopp";
+// 	printf("%s\n", ft_strtrim("hello world", "abcdefghijklmnopqrstuvwxy z"));
+// }

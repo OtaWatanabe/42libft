@@ -6,7 +6,7 @@
 /*   By: owatanab <owatanab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:11:56 by owatanab          #+#    #+#             */
-/*   Updated: 2023/06/22 13:53:22 by owatanab         ###   ########.fr       */
+/*   Updated: 2023/07/27 14:18:37 by owatanab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,12 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*p;
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 
-	i = 0;
-	j = 0;
-	while (s1[i])
-		i++;
-	while (s2[j])
-		j++;
-	p = malloc(i + j + 1);
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	p = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, 1);
 	if (p)
 	{
 		i = 0;
@@ -39,7 +35,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 			p[i + j] = s2[j];
 			j++;
 		}
-		p[i + j] = 0;
 	}
 	return (p);
 }

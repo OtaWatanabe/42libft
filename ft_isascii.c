@@ -6,7 +6,7 @@
 /*   By: owatanab <owatanab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 19:14:09 by owatanab          #+#    #+#             */
-/*   Updated: 2023/06/22 13:52:26 by owatanab         ###   ########.fr       */
+/*   Updated: 2023/08/09 13:59:49 by owatanab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 int	ft_isascii(int c)
 {
-	if (0 <= c && c < 128)
-		return (1);
-	return (0);
+	return (0 <= c && c < 128);
 }
 
 // int	main(void)

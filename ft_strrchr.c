@@ -6,7 +6,7 @@
 /*   By: owatanab <owatanab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:32:36 by owatanab          #+#    #+#             */
-/*   Updated: 2023/06/22 13:54:08 by owatanab         ###   ########.fr       */
+/*   Updated: 2023/07/13 17:47:08 by owatanab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ char	*ft_strrchr(const char *s, int c)
 	p = 0;
 	while (*s)
 	{
-		if (*s == c)
+		if (*s == (char)c)
 			p = (char *)s;
 		s++;
 	}
+	if ((char)c == 0)
+		return ((char *)s);
 	return (p);
 }
 
@@ -32,6 +34,6 @@ char	*ft_strrchr(const char *s, int c)
 // int	main(void)
 // {
 // 	char s[] = "qopovu";
-// 	printf("%s\n", ft_strrchr(s, 's'));
-// 	printf("%s", strrchr(s, 's'));
+// 	printf("%s\n", ft_strrchr(s, 0));
+// 	printf("%s", strrchr(s, 0));
 // }

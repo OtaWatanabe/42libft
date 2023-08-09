@@ -6,23 +6,28 @@
 /*   By: owatanab <owatanab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 18:14:16 by owatanab          #+#    #+#             */
-/*   Updated: 2023/06/22 13:52:52 by owatanab         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:52:33 by owatanab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, unsigned n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned	i;
-	char		*s;
+	size_t			i;
+	unsigned char	*s;
+	unsigned char	*t;
 
-	char *restrict t;
-	i = -1;
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	i = 0;
 	s = dst;
-	t = (char *restrict)src;
-	while (++i < n)
+	t = (unsigned char *)src;
+	while (i < n)
+	{
 		s[i] = t[i];
+		i++;
+	}
 	return (dst);
 }
 
@@ -31,7 +36,7 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, unsigned n)
 
 // int	main(void)
 // {
-// 	char s[] = "sdfsd";
+// 	char *s = NULL;
 // 	char t[] = "as";
 // 	printf("%s", ft_memcpy(s, t, 3));
 // 	char s1[] = "sdfsd";
