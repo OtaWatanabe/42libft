@@ -6,7 +6,7 @@
 /*   By: otawatanabe <otawatanabe@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 03:46:00 by otawatanabe       #+#    #+#             */
-/*   Updated: 2023/08/13 03:53:41 by otawatanabe      ###   ########.fr       */
+/*   Updated: 2023/08/15 00:34:22 by otawatanabe      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void ft_lstclear(t_list **lst, void (*del)(void*))
 {
     t_list  *next;
+    if (lst == NULL)
+        return ;
     while (*lst)
     {
         next = (*lst) -> next;
