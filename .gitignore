@@ -1,3 +1,4 @@
 libft-tester-tokyo
 *.o
 libft.a
+.DS_Store
